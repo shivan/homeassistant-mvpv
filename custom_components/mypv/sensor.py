@@ -7,6 +7,7 @@ from homeassistant.const import (
     ELECTRIC_CURRENT_AMPERE,
     FREQUENCY_HERTZ,
     TEMP_CELSIUS,
+    PERCENTAGE
 )
 
 from .const import SENSOR_TYPES, DOMAIN, DATA_COORDINATOR
@@ -71,6 +72,8 @@ class MypvDevice(CoordinatorEntity):
         if self._unit_of_measurement == TEMP_CELSIUS:
             return state / 10
         if self._unit_of_measurement == ELECTRIC_CURRENT_AMPERE:
+            return state / 10
+        if self._unit_of_measurement == PERCENTAGE:
             return state / 10
         return state
 
